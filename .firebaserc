@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "mercadona-802bb"
+  },
+  "targets": {
+    "mercadona-802bb": {
+      "hosting": {
+        "mercadona": [
+          "mercadona-802bb"
+        ]
+      }
+    }
+  }
+}
