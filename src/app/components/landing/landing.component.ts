@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthGuardService } from 'src/app/services/auth-guard.service';
 import { AuthService } from 'src/app/services/auth.service';
-import { User } from 'src/models/models';
+import Constants from 'src/constants';
+import { Tornillo, User } from 'src/models/models';
 
 @Component({
   selector: 'app-landing',
@@ -14,6 +15,7 @@ export class LandingComponent implements OnInit {
   user!: User;
   loginForm!: FormGroup;
   telefono = new FormControl('', [Validators.required]);
+  tornillos!: Tornillo[];
 
   constructor(
     public _service: AuthService,
@@ -27,9 +29,18 @@ export class LandingComponent implements OnInit {
     // })
     // if(this.user)this.login();
 
+    this._service.tornillos$.subscribe( tornillos => {
+      this.tornillos = tornillos;
+      console.log('TORNILLOS', tornillos)
+    })
+    this.getTornillos();
+
     this.loginForm = this._formBuilder.group({
       password: ['', Validators.required]
     });
+  }
+  getTornillos() {
+    this._service.getAll(Constants.END_POINTS.TORNILLOS);
   }
 
   login() {

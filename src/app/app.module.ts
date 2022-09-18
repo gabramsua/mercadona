@@ -13,6 +13,9 @@ import { environment } from '../environments/environment';
 import { LandingComponent } from './components/landing/landing.component';
 import { HomeComponent } from './components/home/home.component';
 import { PaginaNoEncontradaComponent } from './components/shared/pagina-no-encontrada/pagina-no-encontrada.component';
+import { MenuComponent } from './components/shared/menu/menu.component';
+
+import { MatButtonModule } from '@angular/material/button';
 
 
 @NgModule({
@@ -20,7 +23,8 @@ import { PaginaNoEncontradaComponent } from './components/shared/pagina-no-encon
     AppComponent,
     LandingComponent,
     HomeComponent,
-    PaginaNoEncontradaComponent
+    PaginaNoEncontradaComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
@@ -28,6 +32,8 @@ import { PaginaNoEncontradaComponent } from './components/shared/pagina-no-encon
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
+
+    MatButtonModule,
     
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore())

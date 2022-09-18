@@ -20,7 +20,9 @@ import { Tornillo, User } from '../../models/models';
 })
 export class AuthService {
   currentUser$ = new Subject<User>();
-  tornillos$ = new BehaviorSubject<Tornillo[]>([{id: '', nombre: '', precio: 0, formato: '', marca: ''}]);
+  // No necesitamos establecer un valor previo 
+  // tornillos$ = new BehaviorSubject<Tornillo[]>([{id: '', nombre: '', precio: 0, formato: '', marca: ''}]);
+  tornillos$ = new Subject<Tornillo[]>();
 
   constructor(private firebase: Firestore,
     private router: Router) { 
