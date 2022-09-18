@@ -8,8 +8,16 @@ hr {
     height: 3px;
 }
 
-.mercadona-button{
+.mercadona-button {
     background-color: $verde-mercadona;
     color: $gris-claro;
     padding: 5px;
+
+    &-delete {
+        background-color: $red-delete;
+    }
+}
+
+.span-title {
+    font-weight: bold;
 }

@@ -2,11 +2,11 @@
     <div class="contenedor-menu-logo">
         <img src="../../../../assets/logo_header.png" alt="Mercadona">
     </div>
-    <div class="contenedor-menu-login" *ngIf="!user">
-        <!-- <button>Iniciar Sesión</button> -->
+    <div class="contenedor-menu-login" *ngIf="!user?.nombre">
         <button mat-raised-button>Iniciar Sesión</button>
     </div>
-    <div class="contenedor-menu-logout" *ngIf="user">
-        <span>LOGOUT ICON</span>
+    <div class="contenedor-menu-logout" *ngIf="user?.nombre" (click)="logout()">
+        <span>{{ user.nombre }}</span>
+        <mat-icon class="mr-2" aria-label="icon" fontIcon="logout"></mat-icon>
     </div>
 </div>

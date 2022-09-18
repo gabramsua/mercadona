@@ -22,7 +22,6 @@ export class LoginDialogComponent implements OnInit {
   login() {
     if(!!this.password) {
       this.generateHash(this.password).then( hash => {
-        console.log(this.password, hash)
         this._service.login(Constants.END_POINTS.USERS, this.usuario, hash)
         this.dialogRef.close();
       })

@@ -25,7 +25,6 @@ export class AuthGuardService implements CanActivate {
       
   }
   checkUserLogin(): boolean {
-    // TODO: Hacer con Observable: if ( localStorage.getItem('currentUser') ) return true;
     if(!!this.user) return true;
     else {
       this.router.navigate(['/']);

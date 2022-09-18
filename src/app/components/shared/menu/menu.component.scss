@@ -5,4 +5,12 @@ img {
     &-login {
         margin-right: 10px;
     }
+    &-logout {
+        display: flex;
+        align-items: center;
+
+        span {
+            margin-right: 10px;
+        }
+    }
 }

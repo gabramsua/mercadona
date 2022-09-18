@@ -1,0 +1,16 @@
+table {
+    width: 100%;
+    td > mat-icon {
+        color: red;
+    }
+}
+
+tbody {
+    height: 100vh;
+    overflow: scroll;
+}
+
+button {
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
