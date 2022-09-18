@@ -43,7 +43,9 @@ export class HomeComponent implements OnInit, AfterViewInit  {
     this._service.getAll(Constants.END_POINTS.TORNILLOS)
   }
   add() {
-     this.dialog.open(CreateDialogComponent);
+     this.dialog.open(CreateDialogComponent).afterClosed().subscribe(result => {
+      this.getAllTornillos();
+    });
 
   }
 

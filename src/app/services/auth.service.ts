@@ -34,7 +34,7 @@ export class AuthService {
   }
 
   save(collectionChosen: string, item: any){
-    addDoc(collection(this.firebase, collectionChosen), item).then(docRef => {
+    return addDoc(collection(this.firebase, collectionChosen), item).then(docRef => {
       console.log(docRef.id);
     })
     .catch(error => {
