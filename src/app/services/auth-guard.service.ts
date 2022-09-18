@@ -1,16 +1,23 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
 import { Subject } from 'rxjs';
+import { User } from 'src/models/models';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthGuardService implements CanActivate {
-  notAllowed$ = new Subject<string>();
+  user!: User;
 
   constructor(
-    private router: Router
-  ) { }
+    private router: Router,
+    public _service: AuthService
+  ) { 
+    this._service.currentUser$.subscribe((user: any) => {
+      this.user = user;
+    })
+  }
 
 
   canActivate() {
@@ -18,11 +25,11 @@ export class AuthGuardService implements CanActivate {
       
   }
   checkUserLogin(): boolean {
-    this.notAllowed$.next('Necesitas loguearte para poder entrar en esa sección.');
-
     // TODO: Hacer con Observable: if ( localStorage.getItem('currentUser') ) return true;
-    
-    this.router.navigate(['/']);
-    return false;
+    if(!!this.user) return true;
+    else {
+      this.router.navigate(['/']);
+      return false;
+    }
   }
 }

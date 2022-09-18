@@ -10,6 +10,7 @@ import { AuthService } from './services/auth.service';
 })
 export class AppComponent {
   title = 'Mercadona';
+  loading = false;
   user!: User;
   
   constructor(public _service: AuthService, public guardService: AuthGuardService){}
@@ -17,6 +18,9 @@ export class AppComponent {
   ngOnInit(): void {
     this._service.currentUser$.subscribe( (user: User) => {
       this.user = user;
+    })
+    this._service.loading$.subscribe( (res: any) => {
+      this.loading = res;
     })
     
     if(!this.user) {

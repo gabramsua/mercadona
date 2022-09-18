@@ -1,5 +1,12 @@
 <menu class="cont-menu"></menu>
 <hr>
-<div class="container cont">
+<div class="container cont" *ngIf="!loading">
   <router-outlet></router-outlet>
+</div>
+
+<div *ngIf="loading" class="d-flex justify-content-center">
+  <div class="d-flex flex-column">
+    <mercadona-spinner></mercadona-spinner>
+    <span>Cargando...</span>
+  </div>
 </div>

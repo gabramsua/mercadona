@@ -23,6 +23,7 @@ export class AuthService {
   // No necesitamos establecer un valor previo 
   // tornillos$ = new BehaviorSubject<Tornillo[]>([{id: '', nombre: '', precio: 0, formato: '', marca: ''}]);
   tornillos$ = new Subject<Tornillo[]>();
+  loading$ = new BehaviorSubject<Boolean>(false);
 
   constructor(private firebase: Firestore,
     private router: Router) { 
@@ -81,14 +82,18 @@ export class AuthService {
   }
   
 
-  login(collection: any, password: string) {
-    getDoc(doc(this.firebase, collection, password))
+  login(collection: string, usuario: string, password: string) {
+    this.loading$.next(true);
+    getDoc(doc(this.firebase, collection, usuario))
     .then((data:any) => {
       if(data.data()) {
         this.currentUser$.next(data.data());
         this.router.navigate(['home']);
+        this.loading$.next(false);
+
       } else {
         console.log('NO login')
+        this.loading$.next(false);
       }
     })
     .catch((err:any) => {

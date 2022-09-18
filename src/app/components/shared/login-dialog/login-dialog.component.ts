@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
-import { AuthGuardService } from 'src/app/services/auth-guard.service';
+import { AuthService } from 'src/app/services/auth.service';
+import Constants from 'src/constants';
 
 @Component({
   selector: 'app-login-dialog',
@@ -13,7 +14,7 @@ export class LoginDialogComponent implements OnInit {
   password!: string;
 
   constructor(
-    public _guard: AuthGuardService,
+    public _service: AuthService,
     public dialogRef: MatDialogRef<LoginDialogComponent>) { }
 
   ngOnInit(): void {}
@@ -22,10 +23,12 @@ export class LoginDialogComponent implements OnInit {
     if(!!this.password) {
       this.generateHash(this.password).then( hash => {
         console.log(this.password, hash)
+        this._service.login(Constants.END_POINTS.USERS, this.usuario, hash)
+        this.dialogRef.close();
       })
     }
   }
-  
+
   generateHash(str: string, algorithm = "SHA-512") {
     let strBuffer = new TextEncoder().encode(str);
 

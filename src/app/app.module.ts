@@ -20,8 +20,10 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
 import { LoginDialogComponent } from './components/shared/login-dialog/login-dialog.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { InputTextModule } from 'primeng/inputtext';
+import { SpinnerComponent } from './components/shared/spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ import { InputTextModule } from 'primeng/inputtext';
     HomeComponent,
     PaginaNoEncontradaComponent,
     MenuComponent,
-    LoginDialogComponent
+    LoginDialogComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,
@@ -43,6 +46,7 @@ import { InputTextModule } from 'primeng/inputtext';
     MatCardModule,
     MatIconModule,
     MatDialogModule,
+    MatProgressSpinnerModule,
 
     InputTextModule,
     
