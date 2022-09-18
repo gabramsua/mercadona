@@ -17,6 +17,11 @@ import { MenuComponent } from './components/shared/menu/menu.component';
 
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { MatDialogModule } from '@angular/material/dialog';
+import { LoginDialogComponent } from './components/shared/login-dialog/login-dialog.component';
+
+import { InputTextModule } from 'primeng/inputtext';
 
 @NgModule({
   declarations: [
@@ -24,7 +29,8 @@ import { MatCardModule } from '@angular/material/card';
     LandingComponent,
     HomeComponent,
     PaginaNoEncontradaComponent,
-    MenuComponent
+    MenuComponent,
+    LoginDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -35,6 +41,10 @@ import { MatCardModule } from '@angular/material/card';
 
     MatButtonModule,
     MatCardModule,
+    MatIconModule,
+    MatDialogModule,
+
+    InputTextModule,
     
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore())
