@@ -15,6 +15,8 @@ import { PaginaNoEncontradaComponent } from './components/shared/pagina-no-encon
 import { MenuComponent } from './components/shared/menu/menu.component';
 import { LoginDialogComponent } from './components/shared/login-dialog/login-dialog.component';
 import { SpinnerComponent } from './components/shared/spinner/spinner.component';
+import { DeleteDialogComponent } from './components/shared/delete-dialog/delete-dialog.component';
+import { CreateDialogComponent } from './components/shared/create-dialog/create-dialog.component';
 import { AuthGuardService } from 'src/app/services/auth-guard.service';
 
 import { MatButtonModule } from '@angular/material/button';
@@ -26,7 +28,8 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 
 import { InputTextModule } from 'primeng/inputtext';
-import { DeleteDialogComponent } from './components/shared/delete-dialog/delete-dialog.component';
+import { InputNumberModule } from 'primeng/inputnumber';
+import { DropdownModule } from 'primeng/dropdown';
 
 @NgModule({
   declarations: [
@@ -37,7 +40,8 @@ import { DeleteDialogComponent } from './components/shared/delete-dialog/delete-
     MenuComponent,
     LoginDialogComponent,
     SpinnerComponent,
-    DeleteDialogComponent
+    DeleteDialogComponent,
+    CreateDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -55,6 +59,8 @@ import { DeleteDialogComponent } from './components/shared/delete-dialog/delete-
     MatPaginatorModule,
 
     InputTextModule,
+    InputNumberModule,
+    DropdownModule,
     
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore())
