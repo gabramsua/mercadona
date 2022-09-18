@@ -16,7 +16,7 @@ import { PaginaNoEncontradaComponent } from './components/shared/pagina-no-encon
 import { MenuComponent } from './components/shared/menu/menu.component';
 
 import { MatButtonModule } from '@angular/material/button';
-
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -34,6 +34,7 @@ import { MatButtonModule } from '@angular/material/button';
     ReactiveFormsModule,
 
     MatButtonModule,
+    MatCardModule,
     
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore())
