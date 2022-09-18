@@ -1,4 +1,4 @@
-<div class="mat-elevation-z8">
+<div class="mat-elevation-z8" *ngIf="!isDeleteAction">
     <table mat-table [dataSource]="dataSource">
   
       <ng-container matColumnDef="nombre">
@@ -24,8 +24,11 @@
       <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef> Acciones </th>
         <td mat-cell *matCellDef="let element"> 
-            <mat-icon class="mr-2" aria-label="icon" fontIcon="delete" (click)="delete(element.id)"></mat-icon>
-            <!-- {{element.id}} -->
+            <mat-icon 
+                class="mr-2" 
+                aria-label="icon" 
+                fontIcon="delete" 
+                (click)="delete(element.id)"></mat-icon>
         </td>
       </ng-container>
   
@@ -39,3 +42,9 @@
     </mat-paginator>
   </div>
   
+<ng-container *ngIf="isDeleteAction">
+    <delete-dialog 
+        [idToDelete]="selectedId"
+        (accionCancel)="cancelDelete()"
+        (accionDelete)="accionDelete()"></delete-dialog>
+</ng-container>

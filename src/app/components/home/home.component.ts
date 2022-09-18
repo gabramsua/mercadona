@@ -4,6 +4,8 @@ import {MatTableDataSource} from '@angular/material/table';
 import { AuthService } from 'src/app/services/auth.service';
 import Constants from 'src/constants';
 import { Tornillo } from 'src/models/models';
+import { MatDialog } from '@angular/material/dialog';
+import { DeleteDialogComponent } from '../shared/delete-dialog/delete-dialog.component';
 
 @Component({
   selector: 'app-home',
@@ -15,9 +17,14 @@ export class HomeComponent implements OnInit, AfterViewInit  {
 
   displayedColumns: string[] = ['nombre', 'precio', 'formato', 'marca', 'id'];
   dataSource = new MatTableDataSource<Tornillo>([]);
+  isDeleteAction = false;
+  selectedId!: string;
 
 
-  constructor(private _service: AuthService) { }
+  constructor(
+    public dialog: MatDialog,
+    private _service: AuthService
+  ) { }
 
   ngOnInit(): void {
     this._service.tornillos$.subscribe((tornillos: Tornillo[]) => {
@@ -36,7 +43,19 @@ export class HomeComponent implements OnInit, AfterViewInit  {
   }
 
   delete(id: string) {
-    console.log('delete ', id)
+    // console.log('delete ', id)
+    // NO VAMOS A HACERLO CON UN DIÁLOGO => VAMOS A PASAR INFORMACIÓN ENTRE COMPONENTES
+    //  this.dialog.open(DeleteDialogComponent);
+    this.selectedId = id;
+
+    this.isDeleteAction = true;
+  }
+  cancelDelete() {
+    this.isDeleteAction = false;
+  }
+  accionDelete() {
+    this.getAllTornillos();
+    this.isDeleteAction = false;
   }
 
 }

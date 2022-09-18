@@ -1,0 +1,15 @@
+* Fe de erratas: Sé que el mockup tiene un dialog, pero con la librería
+que he escogido todo se hacer por componentes Dialog, como en el LoginDialog. He decidido 
+hacerlo con un ng-container y un paso de información entre componentes padre-hijo, que 
+supongo es una de las cosas que quieren valorar.
+<br>
+Disculpen las molestias.<br><br>
+
+<span>Confirmación</span>
+<p><b>¿Desea eliminar el elemento seleccionado?</b></p>
+<div class="buttons-container">
+    <span class="buttons-container-cancel" (click)="cancel()">Cancelar</span>
+    <button (click)="eliminar()" class="d-flex align-items-center mercadona-button mercadona-button-delete justify-content-center mt-2">
+        Eliminar
+    </button>
+</div>

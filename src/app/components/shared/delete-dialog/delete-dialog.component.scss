@@ -1,0 +1,10 @@
+.buttons-container {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+
+    &-cancel {
+        margin-right: 10px;
+        padding-top: 5px;
+    }
+}

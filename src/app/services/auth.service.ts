@@ -76,9 +76,15 @@ export class AuthService {
     updateDoc(doc(this.firebase, collectionChosen, id), data)
   }
 
-  delete(collectionChosen: string, id: string) {
+  delete(collectionChosen: string, id: string){
     // return this.firebase.collection(collection).doc(id).delete();
-    deleteDoc(doc(this.firebase, collectionChosen, id));
+    return deleteDoc(doc(this.firebase, collectionChosen, id))
+    // .then(() => {
+    //   return true;
+    // })
+    // .catch(() => {
+    //   return false;
+    // });
   }
   
 

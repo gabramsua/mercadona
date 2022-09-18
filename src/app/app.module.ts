@@ -26,6 +26,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 
 import { InputTextModule } from 'primeng/inputtext';
+import { DeleteDialogComponent } from './components/shared/delete-dialog/delete-dialog.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { InputTextModule } from 'primeng/inputtext';
     PaginaNoEncontradaComponent,
     MenuComponent,
     LoginDialogComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    DeleteDialogComponent
   ],
   imports: [
     BrowserModule,
