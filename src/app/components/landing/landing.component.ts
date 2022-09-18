@@ -13,7 +13,7 @@ import { LoginDialogComponent } from '../shared/login-dialog/login-dialog.compon
 export class LandingComponent implements OnInit {
 
   user!: User;
-  tornillos!: Tornillo[];
+  tornillos: Tornillo[] = [];
 
   constructor(
     public _service: AuthService,

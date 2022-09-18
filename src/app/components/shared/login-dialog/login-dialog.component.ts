@@ -9,6 +9,7 @@ import { AuthGuardService } from 'src/app/services/auth-guard.service';
 })
 export class LoginDialogComponent implements OnInit {
 
+  usuario!: string;
   password!: string;
 
   constructor(
@@ -18,11 +19,13 @@ export class LoginDialogComponent implements OnInit {
   ngOnInit(): void {}
 
   login() {
-    this.generateHash(this.password).then( hash => {
-      console.log(hash)
-    })
+    if(!!this.password) {
+      this.generateHash(this.password).then( hash => {
+        console.log(this.password, hash)
+      })
+    }
   }
-
+  
   generateHash(str: string, algorithm = "SHA-512") {
     let strBuffer = new TextEncoder().encode(str);
 
