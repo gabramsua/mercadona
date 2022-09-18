@@ -1,0 +1,43 @@
+<ng-container>
+    <p class="span-title">Nuevo producto</p>
+    <form [formGroup]="form">
+        <div class="d-flex flex-column">
+            <label for="nombre-input">Nombre</label>
+            <input type="text" id="user-input" pInputText formControlName="nombre" aria-label="nombre-input"/>
+        </div>
+
+        
+        <div class="d-flex flex-row mt-4">
+            <div class="w-50">
+                <div class="d-flex flex-column">
+                    <label for="nombre-input">Precio</label>
+                    <p-inputNumber formControlName="precio" [min]="0" [showButtons]="true" buttonLayout="horizontal" inputId="horizontal" spinnerMode="horizontal" [step]="0.1"
+        decrementButtonClass="p-button-danger" incrementButtonClass="p-button-success" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus" mode="currency" currency="EUR">
+        </p-inputNumber>
+                    <!-- <p-inputNumber formControlName="precio" [step]="0.1"></p-inputNumber> -->
+                    <!-- <input type="text" id="user-input" pInputText formControlName="productoName" aria-label="nombre-input"/> -->
+                </div>
+            </div>
+            <div class="w-50 ml-2">
+                <div class="d-flex flex-column">
+                    <label for="nombre-input">Formato</label>
+                    <p-dropdown [options]="formatos" formControlName="formato" placeholder="Selecciona un formato"></p-dropdown>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="d-flex flex-column mt-4">
+            <label for="nombre-input">Marca</label>
+            <input type="text" id="user-input" pInputText formControlName="marca" aria-label="nombre-input"/>
+        </div>
+    </form>
+
+    <div class="botones-container d-flex justify-content-between">
+        <span (click)="cancelar()">Cancelar</span>
+        <button (click)="guardar()" class="d-flex align-items-center mercadona-button justify-content-center mt-2">
+            Guardar
+        </button>
+    </div>
+
+</ng-container>

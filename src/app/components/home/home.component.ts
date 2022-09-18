@@ -6,6 +6,7 @@ import Constants from 'src/constants';
 import { Tornillo } from 'src/models/models';
 import { MatDialog } from '@angular/material/dialog';
 import { DeleteDialogComponent } from '../shared/delete-dialog/delete-dialog.component';
+import { CreateDialogComponent } from '../shared/create-dialog/create-dialog.component';
 
 @Component({
   selector: 'app-home',
@@ -40,6 +41,10 @@ export class HomeComponent implements OnInit, AfterViewInit  {
 
   getAllTornillos() {
     this._service.getAll(Constants.END_POINTS.TORNILLOS)
+  }
+  add() {
+     this.dialog.open(CreateDialogComponent);
+
   }
 
   delete(id: string) {
