@@ -21,11 +21,6 @@ export class LandingComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    // this._service.currentUser$.subscribe( user => {
-    //   this.user = user;
-    // })
-    // if(this.user) REDIRECT
-
     this._service.tornillos$.subscribe( tornillos => {
       this.tornillos = tornillos;
     })
